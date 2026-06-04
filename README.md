@@ -1,0 +1,70 @@
+# VintedListingAnalyzer
+
+This Python tool is designed to parse and analyze downloaded Vinted listing data to help users evaluate the competitiveness of the prices.
+
+## Features
+
+The script evaluates listings based on numerous criteria including:
+ * Brand tier classification
+ * Seller reputation analysis
+ * Image quality assessment (heuristic based on photo count)
+ * Authenticity checks
+ * SEO and tag optimization (title-focused)
+ * Presence of measurements
+ * Material descriptions and background quality notes
+ * Estimated shipping costs notes and price drop trends
+
+## Installation
+
+```bash
+pip install beautifulsoup4 lxml
+```
+
+## Usage
+
+### Basic usage with sample data (for testing)
+```bash
+python vinted_listing_analyzer.py
+```
+
+### Analyze your own Vinted profile HTML
+1. Go to the Vinted member profile page you want to analyze.
+2. Right-click → "View Page Source" or use DevTools (F12) → Elements tab → right-click the main listings container or `<body>` → Copy → Copy outerHTML / Copy element.
+3. Save it to a file, e.g. `my_profile.html`
+4. Run:
+```bash
+python vinted_listing_analyzer.py --html-file my_profile.html --output my_vinted_analysis
+```
+
+The tool will generate:
+- Console report with scores and actionable recommendations
+- `my_vinted_analysis.json` — full structured data
+- `my_vinted_analysis.csv` — tabular export for further analysis (Excel/Google Sheets)
+
+## Output Example
+
+The analyzer produces per-listing scores (0-10) across all criteria + an overall competitiveness score + specific recommendations to improve the listing or identify good deals.
+
+## Scope & Limitations (MVP)
+
+- Works best with HTML containing visible item cards from the profile grid.
+- Detailed descriptions, multiple photos count, and measurements are best captured when the HTML includes expanded info or you analyze individual item pages.
+- Image quality is currently a simple heuristic (photo count). Full computer vision analysis can be added in future versions.
+- Price competitiveness uses internal heuristics + discount detection. For true market comparison, integrate live Vinted search or price databases in a future iteration.
+- No live scraping included (by design — you provide the HTML to respect Vinted's ToS and avoid blocks).
+
+## Roadmap / Future Enhancements
+
+- Per-item page fetching (with stealth headers)
+- Computer vision for background cleanliness, photo quality scoring, logo detection
+- Real-time price comparison against similar sold items
+- Dutch/French localization of recommendations
+- Integration with user's inventory for "my listings health check"
+
+## License
+
+MIT — feel free to adapt for your own Vinted flipping or reselling workflow.
+
+---
+
+*Created as part of the ODBE Autonomous Hierarchical Orchestrator v2 project workflow.*
