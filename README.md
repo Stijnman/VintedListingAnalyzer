@@ -17,7 +17,8 @@ The script evaluates listings based on numerous criteria including:
 ## Installation
 
 ```bash
-pip install beautifulsoup4 lxml
+pip install beautifulsoup4 lxml playwright
+playwright install chromium
 ```
 
 ## Usage
@@ -41,6 +42,27 @@ The tool will generate:
 - `my_vinted_analysis.json` — full structured data
 - `my_vinted_analysis.csv` — tabular export for further analysis (Excel/Google Sheets)
 
+## Undetectable Way to Download Profile HTML (Recommended)
+
+For the most reliable and stealthy results, use the included `stealth_vinted_downloader.py`:
+
+```bash
+python stealth_vinted_downloader.py --url "https://www.vinted.be/member/YOUR-USERNAME"
+```
+
+This script:
+- Uses Playwright with advanced stealth patches
+- Simulates human scrolling to load all lazy content
+- Rotates User-Agents, locales (nl-BE/fr-BE), referrers, and headers
+- Adds realistic random delays and mouse movements
+- Is designed following the humanization-stealth-browsing skill principles
+
+**Requirements for stealth downloader:**
+```bash
+pip install playwright
+playwright install chromium
+```
+
 ## Output Example
 
 The analyzer produces per-listing scores (0-10) across all criteria + an overall competitiveness score + specific recommendations to improve the listing or identify good deals.
@@ -51,7 +73,7 @@ The analyzer produces per-listing scores (0-10) across all criteria + an overall
 - Detailed descriptions, multiple photos count, and measurements are best captured when the HTML includes expanded info or you analyze individual item pages.
 - Image quality is currently a simple heuristic (photo count). Full computer vision analysis can be added in future versions.
 - Price competitiveness uses internal heuristics + discount detection. For true market comparison, integrate live Vinted search or price databases in a future iteration.
-- No live scraping included (by design — you provide the HTML to respect Vinted's ToS and avoid blocks).
+- No live scraping included in the core analyzer (by design — you provide the HTML to respect Vinted's ToS and avoid blocks). The stealth downloader is an optional helper.
 
 ## Roadmap / Future Enhancements
 
