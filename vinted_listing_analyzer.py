@@ -20,7 +20,7 @@ BRAND_TIERS: Dict[str, List[str]] = {
     "luxury": [
         "louis vuitton", "gucci", "chanel", "dior", "hermes", "prada", "fendi",
         "balenciaga", "saint laurent", "celine", "bottega veneta", "givenchy",
-        "valentino", "versace", "burberry"
+        "valentino", "versace", "burberry", "loro piana", "brunello cucinelli", "max mara", "acne studios"
     ],
     "premium": [
         "ralph lauren", "tommy hilfiger", "levi's", "calvin klein", "michael kors",
@@ -546,7 +546,7 @@ def generate_report(seller_info: Dict[str, Any], analyzed_listings: List[Dict[st
         print(f"   Brand: {item.get('brand', 'N/A')} ({item.get('brand_tier', 'unknown')}) | Size: {item.get('size', 'N/A')}")
         price_str = f"€{item['price']:.2f}"
         if item.get("discount_percent"):
-            price_str += f" (was €{item.get('original_price'):.2f}, -{item['discount_percent']}%)")
+            price_str += f" (was €{item.get('original_price'):.2f}, -{item['discount_percent']}%)"
         print(f"   Price: {price_str} | Condition: {item.get('condition', 'N/A')}")
         print(f"   Overall Score: {item['overall_score']}/10 → {item['verdict']}")
         print(f"   Key Scores → Brand: {item['scores']['brand']:.1f} | Desc: {item['scores']['description']:.1f} | "

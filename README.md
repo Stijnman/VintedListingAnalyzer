@@ -1,5 +1,8 @@
 # VintedListingAnalyzer
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
 This Python tool is designed to parse and analyze downloaded Vinted listing data to help users evaluate the competitiveness of the prices.
 
 ## Features
