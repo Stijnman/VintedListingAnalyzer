@@ -93,3 +93,7 @@ MIT — feel free to adapt for your own Vinted flipping or reselling workflow.
 ---
 
 *Created as part of the ODBE Autonomous Hierarchical Orchestrator v2 project workflow.*
+
+## Flagship integration
+
+This project remains independently usable and is not deprecated. Its capabilities are also consumed by [FlipForge](https://github.com/Stijnman/FlipForge), where they are integrated with complementary repositories behind shared platform contracts. This repository remains the source of truth for its component-specific implementation.
